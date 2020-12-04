@@ -1,0 +1,8 @@
+Given problem definition:
+Given a positive integer n, break it into the sum of at least two positive integers and maximize the product of those integers. 
+Return the maximum product you can get.
+
+This problem we need to break up a number in to numbers that add up to that number and maximize the product of those 
+
+
+
