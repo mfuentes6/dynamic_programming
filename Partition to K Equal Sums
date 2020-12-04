@@ -1,0 +1,33 @@
+Given Definition
+Given an array of integers nums and a positive integer k, find whether it's possible to divide this array into k non-empty subsets whose sums are all equal.
+
+Input: nums = [4, 3, 2, 3, 5, 2, 1], k = 4
+Output: True
+Explanation: It's possible to divide it into 4 subsets (5), (1, 4), (2,3), (2,3) with equal sums.
+
+
+This problem asks that we can divide a given list of integers in to K subsets and they all have an equal sum. Each number in the list cannot be reused and only can
+be put in to one subset. Repeated numbers in the list can only be used once for each instance, for example if there were 4 number 3's within the subsets you could
+only have 4 3's collectivly. There are no restraints as to how many items can be in each subset as long as they all are equal in sum for each instance.
+
+Using the example problem for reference one can deduce that there will be times when the number of items in the list will either be even or odd. We can handle each
+instance differently but there are no constraints so I will handle both instances the same in my logical approach. To start the first subset will be the max of the 
+list and each following subset needs to add up to that value whihc be saved into a variable maximum. That value will also be poped from the list so it will not be
+used again. Than a while loop will be used to get the other subsets. The loop will have a for loop within it as well. The for loop will have the structure of  
+for a in K which will make it easier to grab and check the items in the list. First the beginning value will be saved in to 
+variable number1 and popped from the list. Then iterating through the list with the for loop it will check for a value that when added it will equal the maximum 
+value that will be of the substrings. When this is found the new value will be popped a break statement will leave the for loop and begin the while loop again
+in order to get the beginning value. Before the breal the K value will decremented by 1 because the while loop will run till k = 0. When the maximum was found
+the K value will have been decremented by 1 as well. Once the loop is exited then the list will be checked if it has no values left to be used. If it is empty
+then true is returned but if it is not empty false will be returned.
+
+For this problem we assume integers will be provided always, no instances of strings or characters. The edge cases to consider would be when there is one item,
+if K is greater then the number of items in the list, k = 1 and k = 0. If there is one item and k = 1 then return true. no matter the amount of items in hte list,
+k is greater then false will be returned always. If k = 1 then true will be returned and if k = 0 then false will be returned. If the list is empty then false
+will be returned because there is no list at all to break up. This could also fall in to the check of k being greater then the amount of items in the list. But if 
+k = 0 as well as no items being in the list would call for a check that would be just for the empty list becasue it would be possible to miss that case logically.
+
+
+
+
+
