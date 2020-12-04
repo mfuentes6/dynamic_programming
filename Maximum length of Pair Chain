@@ -1,0 +1,24 @@
+
+Given problem definition:
+You are given n pairs of numbers. In every pair, the first number is always smaller than the second number. 
+Now, we define a pair (c, d) can follow another pair (a, b) if and only if b < c. Chain of pairs can be formed in this fashion. 
+Given a set of pairs, find the length longest chain which can be formed. You needn't use up all the given pairs. You can select pairs in any order. 
+
+Assuming all pairs will have the first number is less than the second number order a,b. For a chain to be linked the next pair of numbers must have the first
+number be greater than the the second number of the previous pair. So each pair of numbers will be increasing in order to be attached to the chain. The pairs
+will be added to the right side or end of the chain and will not be appended to the beginning of the list. The end of the chain is what can be added to only.
+
+This problem will need to only keep track of the end of the chain and update the pair when a suitable pair is found. When a pair is updated an integer variable will
+increase by 1 since the longest chain possible is what we need to find that is possible not the chain itself. A list of lists containing two digits in the list is
+what will be passed to the method to solve. So for simplicity the first pair will be saved and the second number of the pair is what will be compared each check of
+iterating through the rest of the pairs to check the first number is greater than the "b" from the first pair than update the chain variables to check and continue
+though the rest of the list. The best way to check more possibilities will be to have the starting pair change. So in order to do this there would have to be two
+for loops the first sets the beginning of the chain. Then the second loop will carry out the logic checking the rest of the list and exit once reaching the end. Once
+both loops finish the longest chain possible integer will reflect the solution of the longest chain possible. This is what will be returned as the solution the problem.
+
+
+The second loop will compare each new list, using pythons for a in List will make it easier to grap the next pair each time and compar with a[0] to the b of the pair
+in the chain. The first for loop will use the same construction of for a in List but with different variable names. But to take account for base cases like if there
+are no numbers to be attached to the chain then the longest chain will be only one which is taken care of with the variable to track longest chain being initialized to 1.
+There will be a case in the beginning of the method that will check other cases like if the list of lists is not just a plain list or the pairs are not integers. 
+In those cases a zero should be returned along with an error message that the input is invalid for the method.
