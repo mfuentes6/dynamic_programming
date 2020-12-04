@@ -1,0 +1,66 @@
+For this problem we are tasked with finding the total number of palindrome substrings within a string. In order to do this I first looked at the example problems
+to understand how exactly the solution to work.
+
+When given the string "abc" the result is 3 beacuse each letter is a palindrome of length one. When we are given the string "aaa" the result is 6.
+The 6 palindromes are "a" "a" "a" "aa" "aa" and "aaa". I can see that letters that I need to check the initail string given to find the substrings of a letter of
+length n. For instance, "aaabccccc" would have 3 different substrings to check, which are "aaa" "b" and "ccccc". These each have their own number of palindromes to
+find. So this tells me a helper method would be good to use.
+
+So my first step would be to create a method that reads the string to find the substrings to check. So I would need to iterate through the string starting at the
+first letter. This letter will be added to a temporary string that will be sent to the helper method. Also the letter will be tracked to know when a different
+letter is found. The process would be add first letter and move to next, check if it is the same letter than add it and continue till a differemnt one is found.
+Once that happens the string will be sent to the helper method that will return an integer of how many palindromes of that temporary string and will be added to a
+integer variable named total or something along those lines. After that call the new letter will replace the temporary string and be the new letter to check.
+This repeats untill the end of the string is reached and the final temporary string will be sent to the helper method and the variable total will be returned as
+the solution to the problem.
+
+The helper method will be a simpler method that will simply return the total palindromes within the string. Based on the length of the string the method will find
+the answer. When the length is one it is 1, 2 is 3, and 3 is 6. If broken down a pattern can be unearthed. For each string of length n, the answer can be found similar
+to the factorial operation but instead of multiplying the numbers you would need to add them instead. So for instance the string of length 3, the answer is 6. Which
+is obtained by adding 3,2 and 1. So the method will have a while loop that continuously decreases n by 1 and adding it up to get the solution then return that total.
+Which will than be used in the original method to find the total from the original string given.
+
+All in all to solve this probelm I would use two methods. One of which will read the original string and find the string to be passed to the second method. This
+would use a for loop going through the string and 3 other local variables to track the sum, current caracter checking and the temporary string to be passed to the 
+helper method. The helper method will only need two local variables and a while loop. The first local variable will be set to the length of the string passed. The
+loop will then use that variable to add it to the second variable total untill it reachs zero and the total will be returned.
+
+
+
+python psudocode:
+
+def counter(word):
+
+  total = 0
+  count = len(word)
+  while count != 0:
+  
+      total += count
+      count -= 1
+      
+  return total
+  
+  
+  
+def palindrome(word):
+     total = 0
+     temp = ""
+     current = word[0]
+     
+     for a in word
+        if a != current:
+              current = a
+              total += counter(temp)
+              temp = current
+        else:
+              temp = temp + current
+     total += counter(temp)
+     
+     return total
+  
+  
+  
+  
+  
+  
+  
