@@ -1,8 +1,33 @@
 Given problem definition:
 Given a positive integer n, break it into the sum of at least two positive integers and maximize the product of those integers. 
 Return the maximum product you can get.
+Note: You may assume that n is not less than 2 and not larger than 58.
 
-This problem we need to break up a number in to numbers that add up to that number and maximize the product of those 
+This problem we need to break up a number in to numbers that add up to that number and maximize the product of those numbers obtained. For example given the number 10
+can be broken up in to 3,3,4 which multiplies to 36. 5 and 5 would be 25 but this is not greater than 36 so the previous numbers would be the best answer. And 36
+would be the answer.
+
+
+This problem requires breaking down some problems and finding a pattern and figuring a way to implement this pattern to solve the problem. I first started working
+the basic instances of the problem and found that for integers 1 - 5 have unique answers but answers 6 or greater followed a pattern. The pattern is that there will
+always be 3 numbers that would be needed to maximize the product. They can be labeled a,b,c and starting at 6 they are 2,2,2. respectivly. Following that there are a pattern that
+repeats every 3 steps. These steps can be implemented by using a switch statement with a integer variable called step to track the steps and change a, b or c
+accordingly. The cases would be step 0,1,2,3. After each switch case step will increment by 1 until reaching 3 where it will change step back to 1 and repeat the 
+steps over and over again. To know when to stop will be to have a while loop that contains the switch statement. The condition of the while loop will have an integer
+which is initialized to 6 and will continue incrementing that variable until it is equal to the passed value to the method. For the cases 2-5 they will have
+hard coded solutions because they are unique and have no pattern.
+
+The steps of the pattern following 6 goes as follows. a,b,c will be 222. Step= 0 will increment a by 1. Step = 1 will increment b by 1, Step = 2 will
+increment a by 1, Step = 3 will increase c by 1 then step return to step = 1 again and repeats again and again.
+For case of 10:
+a:2,3,3,4,4,
+b:2,2,3,3,3,
+c:2,2,2,2,3,
+step:0,1,2,3,1
+tracker:6,7,8,9,10
+
+This pattern continues forever and ever incrementing the 3 digits in the same order over and over to find the solution for any integer up to 58 and greater than 2.
+This problem did at first seem daunting to figure out but breaking it down and finding the pattern it made all the pieces fall in to place to figure it all out.
 
 
 
